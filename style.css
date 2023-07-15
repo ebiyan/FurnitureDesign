@@ -1,0 +1,328 @@
+@charset "utf-8";
+
+/**********************
+common
+**********************/
+
+
+html {
+  font-size: 100%;
+}
+
+body {
+  font-size: 0.875rem;
+  color: #333333;
+  font-family: "Meiryo","Regular";
+  max-width: 1360px;
+  margin: 0;
+  padding: 0 40px;
+}
+
+p {
+  margin: 0;
+}
+
+img {
+  max-width: 100%;
+}
+
+a {
+  text-decoration: none;
+  color: #333333;
+}
+
+a:hover {
+  opacity: 0.5;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.flex {
+  display: flex;
+}
+
+/**********************
+header
+**********************/
+header.flex {
+  justify-content: space-between;
+  align-items: center;
+}
+
+h1 {
+  margin-top: 30px;
+}
+
+h1 img {
+  width: 180px;
+  height: 25px;
+}
+
+.menubtn {
+  position: relative;
+  width: 30px;
+  height: 50px;
+  cursor: pointer;
+}
+
+.menubtn span {
+  display: inline-block;
+  width :100%;
+  height: 2px;
+  background-color: #333333;
+  position: absolute;
+  transition: all .4s;
+}
+
+.menubtn span:nth-of-type(1) {
+  top:23px; 
+}
+
+.menubtn span:nth-of-type(2) {
+  top:30px; 
+}
+
+/* クリック時に回転して×にする */
+
+.active.menubtn span:nth-of-type(1){
+  top: 20px;
+  transform: translateY(6px) rotate(-45deg);
+  background-color: #fff;
+  z-index: 101;
+}
+
+.active.menubtn span:nth-of-type(2){
+  top: 32px;
+  transform: translateY(-6px) rotate(45deg);
+  background-color: #fff;
+  z-index: 101;
+}
+
+
+
+
+
+/**********************
+menu-modal
+**********************/
+
+.menu-modal-wrapper {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 100;
+  display: none;
+}
+
+.modal {
+  position: absolute;
+  top: 50px;
+  left: 50px;
+  animation: slide-in-anim .3s linear;
+}
+
+@keyframes slide-in-anim {
+  0% {
+    transform: translateX(-100%);
+  }
+  50%{
+		transform: translateX(-50%);
+  }
+}
+
+.modal a {
+  display: block;
+  color: #fff;
+  margin-bottom: 16px;
+}
+
+
+/**********************
+main
+**********************/
+
+.products-list .flex {
+  flex-wrap: wrap;
+  gap:36px;
+}
+
+.products-list .item {
+  width: calc((100% - 108px) / 4);
+  transition: all 0.4s ease;
+}
+
+.item p {
+  line-height: 0.75rem;
+  margin-top: 8px;
+}
+
+.btn {
+  text-align: center;
+  margin-top: 40px;
+  font-size: 0.875rem;
+  justify-content: center;
+}
+
+
+/**********************
+footer
+**********************/
+
+footer {
+  margin-top: 60px;
+  padding-bottom: 14px;
+}
+
+footer .flex {
+  justify-content: space-between;
+}
+
+footer p {
+  margin-right: 32px;
+}
+
+footer .copywrite {
+  font-size: 0.625rem;
+}
+
+/**********************
+item-html
+**********************/
+
+.product-detail {
+  max-width: 800px;
+}
+
+h3 {
+  font-weight: normal;
+  margin-top: 48px;
+  margin-bottom: 34px;
+}
+
+.product-detail .flex{
+ justify-content: space-between;
+}
+
+.product-detail .item {
+  width: 45%;
+}
+
+.product-detail .item-detail {
+  width: 45%;
+}
+
+
+.item-detail p {
+  margin-bottom: 25px;
+}
+
+.item-detail dl {
+  margin: 0;
+  flex-wrap: wrap;
+}
+
+.item-detail dt {
+  margin: 0;
+  padding: 0;
+  width: 30%;
+}
+
+.item-detail dd {
+  margin: 0;
+  padding: 0;
+  width: 70%;
+}
+
+.item-detail .back-btn{
+  margin-top: 96px;
+  text-align: center;
+}
+
+
+/**********************
+containts-page  About
+**********************/
+
+.containts-page {
+  max-width: 600px;
+}
+
+.containts-page.about p{
+  margin-bottom: 36px;
+}
+
+/**********************
+containts-page  company
+**********************/
+
+.containts-page.company dl {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.containts-page.company dt {
+  width: 25%;
+  margin: 0;
+  padding: 23px 0;
+}
+
+.containts-page.company dd {
+  width: 75%;
+  margin: 0;
+  padding: 23px 0;
+}
+
+.containts-page.company dt:nth-child(n+2) {
+  border-top: solid 1px #DCDBDB;
+}
+
+.containts-page.company dd:nth-child(n+3) {
+  border-top: solid 1px #DCDBDB;
+}
+
+.containts-page.company iframe {
+  filter: grayscale(100%);
+}
+
+
+/**********************
+smart view
+**********************/
+
+@media (max-width:900px) {
+
+  .products-list .item {
+    width: calc((100% - 36px) / 2);
+  }
+
+  .product-detail  .flex{
+    flex-direction: column;
+    justify-content: space-between;
+ }
+ 
+ .product-detail .item {
+   width: 100%;
+ }
+ 
+ .product-detail .item-detail {
+   width: 100%;
+ }
+
+ .product-detail dl.flex {
+   flex-direction: row;
+ }
+
+
+}
